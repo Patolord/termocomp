@@ -2,4 +2,4 @@
 Termodinamica Computacional
 
 Atividade 1
-![Alt text](Atividade%201/Figure1.png?raw=true "Title")
+![Alt text](Figure1.png?raw=true "Title")
