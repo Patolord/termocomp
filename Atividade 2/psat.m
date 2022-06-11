@@ -30,7 +30,7 @@ psatsrk=zeros(nt,1);
 
 %Cálculo da pressão de saturação via Antoine
 for k=1:nt
-psata(k)=calcpsatantoine(pa,tcalc(k));
+psata(k)=calc_psat_antoine(pa,tcalc(k));
 end
 
 %chute para a pressão de saturação em Pa
@@ -38,8 +38,8 @@ chutepr=psata(1);
 
 for k=1:nt
 disp(tcalc(k))
-[psatpr(k)]=calcpsatpr(tcalc(k),tc,pc,w,chutepr);
-[psatsrk(k)]=calcpsatsrk(tcalc(k),tc,pc,w,chutepr);
+[psatpr(k)]=calc_psat_pr(tcalc(k),tc,pc,w,chutepr);
+[psatsrk(k)]=calc_psat_srk(tcalc(k),tc,pc,w,chutepr);
 
 chutepr=psatpr(k);
 %chutepr=1e5;
@@ -57,14 +57,5 @@ legend('Antoine','PR','EXP','SRK')
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [psata] = calcpsatantoine(pa,t)
-a=pa(1,1);
-b=pa(1,2);
-c=pa(1,3);
-psat=10^(a-b/(t+c));
-alfa=(1E5);
-%psat em Pascal
-psata=psat.*alfa;
-end
 
 

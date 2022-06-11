@@ -1,4 +1,4 @@
-function [psat]=calcpsatsrk(t,tc,pc,w,chutep)
+function [psat]=calc_psat_srk(t,tc,pc,w,chutep)
 [a,b]=calcabsrk(t,tc,pc,w);
 [psat]=calculaelvfisrk(t,a,b,chutep);
 end
