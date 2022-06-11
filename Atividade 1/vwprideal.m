@@ -36,8 +36,8 @@ vvw=linspace(0.95e-4,8e-4,np);
 vpr=linspace(0.6e-4,8e-4,np);
 
 %cálculo de a e b para VW e PR
-[avw,bvw]=calcabvw(tc,pc);
-[apr,bpr]=calcabpr(t,tc,pc,w);
+[avw,bvw]=calc_ab_vw(tc,pc);
+[apr,bpr]=calc_ab_pr(t,tc,pc,w);
 
 %definição do número de pontos do diagrama e tamanho dos vetores para
 %armazenar as pressões calculadas
@@ -59,24 +59,5 @@ plot(vvw,pcalcvw,'b',vpr,pcalcid,'r',vpr,pcalcpr,'g')
 ylabel('p(Pa)')
 xlabel('v(m3/mol)')
 legend('VW','Gás ideal','PR')
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [a,b]=calcabvw(tc,pc)
-r=8.31451;
-a=(27/64)*((r*tc)^2)/pc;
-b=r*tc/(pc*8);
-end
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [a,b]=calcabpr(t,tc,pc,w)
-r=8.31451;
-ac=0.45724*((r*tc)^2)/pc;
-b=0.0778*r*tc/pc;
-nc=length(t);
-a=zeros(nc,1);
-kw=0.37464+1.5422*w-0.26992*(w^2);
-for k=1:nc
-tr=t(k)/tc;
-alfa=(1+kw*(1-tr^0.5))^2;
-a(k)=ac*alfa;
-end
-end
+
 
