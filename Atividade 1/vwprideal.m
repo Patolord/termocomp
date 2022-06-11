@@ -1,6 +1,6 @@
 clear
 clc
-%load dos dados de tc(K), pc(Pa) e w
+%load dos dados de tc(K), pc(Pa) e w test
 %H2O
 %load tcpcwh2o.txt
 %tc=tcpcwh2o(1);
